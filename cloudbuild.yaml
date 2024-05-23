@@ -1,10 +1,13 @@
 steps:
-  - id: 'terraform init'
-    name: 'hashicorp/terraform:1.0.0'
-    script: terraform init
-  - id: 'terraform plan'
-    name: 'hashicorp/terraform:1.0.0'
-    script: terraform plan
-  - id: 'terraform apply'
-    name: 'hashicorp/terraform:1.0.0'
-    script: terraform apply --auto-approve
+  - name: 'hashicorp/terraform:light' # Use the Terraform image
+    id: init
+    args: ['init']
+    dir: 'dev' # Directory where your main.tf is located
+  - name: 'hashicorp/terraform:light'
+    id: plan
+    args: ['plan', '-out=tfplan']
+    dir: 'terraform'
+  - name: 'hashicorp/terraform:light'
+    id: apply
+    args: ['apply', '-input=false', 'tfplan']
+    dir: 'terraform'
