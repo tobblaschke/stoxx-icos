@@ -1,5 +1,5 @@
 options:
-  default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET
+  logging: NONE
 
 steps:
   - name: 'hashicorp/terraform:light' # Use the Terraform image
