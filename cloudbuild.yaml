@@ -15,6 +15,6 @@ steps:
     id: apply
     args: ['apply', '-input=false', 'tfplan']
     dir: 'terraform'
- env:
-  - 'PROJECT_ID=index-icos-sandbox-e9ddv7  
+#env:
+# - 'PROJECT_ID=index-icos-sandbox-e9ddv7  
 
