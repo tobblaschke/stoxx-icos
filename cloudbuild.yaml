@@ -31,7 +31,7 @@ steps:
   - '-c'
   - |
     cd stoxx-icos  # Change to the directory containing the Terraform scripts
-    cd dev
+#    cd dev
     terraform init
     terraform plan -out=tfplan
     terraform apply -auto-approve tfplan
