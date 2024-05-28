@@ -1,3 +1,3 @@
-variable "instance_type" {
- default = "t2.medium"
+variable "project_id" {
+ default = "index-icos-sandbox-e9ddv7"
 }
