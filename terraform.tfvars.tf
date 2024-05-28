@@ -1,1 +1,3 @@
-instance_type = "t2.medium"
+variable "instance_type" {
+ default = "t2.medium"
+}
