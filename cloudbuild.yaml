@@ -30,7 +30,8 @@ steps:
   args:
   - '-c'
   - |
-    cd stoxx-icos/dev  # Change to the directory containing the Terraform scripts
+    cd stoxx-icos  # Change to the directory containing the Terraform scripts
+    cd dev
     terraform init
     terraform plan -out=tfplan
     terraform apply -auto-approve tfplan
