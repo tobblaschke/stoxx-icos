@@ -2,19 +2,37 @@ options:
   logging: CLOUD_LOGGING_ONLY
 #logsBucket: 'gs://icos_logbucket'
 
+#steps:
+#  - name: 'hashicorp/terraform:light' # Use the Terraform image
+#    id: init
+#    args: ['init']
+#    dir: 'dev' # Directory where your main.tf is located
+#  - name: 'hashicorp/terraform:light'
+#    id: plan
+#    args: ['plan', '-out=tfplan']
+#    dir: 'terraform'
+#  - name: 'hashicorp/terraform:light'
+#    id: apply
+#    args: ['apply', '-input=false', 'tfplan']
+#    dir: 'terraform'
+    
 steps:
-  - name: 'hashicorp/terraform:light' # Use the Terraform image
-    id: init
-    args: ['init']
-    dir: 'dev' # Directory where your main.tf is located
-  - name: 'hashicorp/terraform:light'
-    id: plan
-    args: ['plan', '-out=tfplan']
-    dir: 'terraform'
-  - name: 'hashicorp/terraform:light'
-    id: apply
-    args: ['apply', '-input=false', 'tfplan']
-    dir: 'terraform'
-#env:
-# - 'PROJECT_ID=index-icos-sandbox-e9ddv7  
+- name: 'gcr.io/cloud-builders/git'
+  entrypoint: 'git'
+  args: ['clone', 'https://github.com/tobblaschke/stoxx-icos.git']
 
+- name: 'gcr.io/cloud-builders/git'
+  entrypoint: 'git'
+  args: ['checkout', 'main'] # Ensure you're on the correct branch
+
+- name: 'hashicorp/terraform:latest'
+  entrypoint: 'sh'
+  args:
+  - '-c'
+  - |
+    cd stoxx-icos  # Change to the directory containing the Terraform scripts
+    terraform init
+    terraform plan -out=tfplan
+    terraform apply -auto-approve tfplan
+
+timeout: '1200s'
