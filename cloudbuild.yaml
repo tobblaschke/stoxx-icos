@@ -12,7 +12,7 @@ options:
 #    args: ['plan', '-out=tfplan']
 #    dir: 'terraform'
 #  - name: 'hashicorp/terraform:light'
-#    id: apply
+#    id: apply 
 #    args: ['apply', '-input=false', 'tfplan']
 #    dir: 'terraform'
     
