@@ -21,9 +21,9 @@ steps:
   entrypoint: 'git'
   args: ['clone', 'https://github.com/tobblaschke/stoxx-icos.git']
 
-- name: 'gcr.io/cloud-builders/git'
-  entrypoint: 'git'
-  args: ['checkout', 'main'] # Ensure you're on the correct branch
+#- name: 'gcr.io/cloud-builders/git'
+#  entrypoint: 'git'
+#  args: ['checkout', 'main'] # Ensure you're on the correct branch
 
 - name: 'hashicorp/terraform:latest'
   entrypoint: 'sh'
