@@ -1,6 +1,5 @@
 options:
-  logging: CLOUD_LOGGING_ONLY
-  logsBucket: gs://icos_logbucket
+  default_logs_bucket_behavior: REGIONAL_USER_OWNED_BUCKET
 
 steps:
   - name: 'hashicorp/terraform:light' # Use the Terraform image
