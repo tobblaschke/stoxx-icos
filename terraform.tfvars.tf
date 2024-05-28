@@ -1,1 +1,1 @@
-project_id = "index-icos-sandbox-e9ddv7"
+instance_type = "t2.medium"
