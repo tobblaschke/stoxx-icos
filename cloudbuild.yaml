@@ -1,3 +1,7 @@
+options:
+  logging: CLOUD_LOGGING_ONLY
+  logsBucket: gs://icos_logbucket
+
 steps:
   - name: 'hashicorp/terraform:light' # Use the Terraform image
     id: init
@@ -11,3 +15,6 @@ steps:
     id: apply
     args: ['apply', '-input=false', 'tfplan']
     dir: 'terraform'
+ env:
+  - 'PROJECT_ID=index-icos-sandbox-e9ddv7  
+
