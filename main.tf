@@ -1,4 +1,3 @@
-```hcl
 provider "google" {
   project = "index-icos-sandbox-e9ddv7"
   region  = "eu-west4"
@@ -21,4 +20,3 @@ resource "google_compute_instance" "default" {
     }
   }
 }
-```
