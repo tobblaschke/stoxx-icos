@@ -32,6 +32,7 @@ steps:
   - |
     cd stoxx-icos  # Change to the directory containing the Terraform scripts
     terraform init
+    terraform state list | grep "google_compute_instance.default" || terraform import 
     terraform plan -out=tfplan
     terraform apply -auto-approve tfplan
 
