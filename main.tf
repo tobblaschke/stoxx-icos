@@ -41,9 +41,4 @@ resource "google_compute_instance" "default" {
     automatic_restart   = true
     on_host_maintenance = "MIGRATE"
   }
-
-  service_account {
-    email  = "264115147184-compute@developer.gserviceaccount.com"
-    scopes = ["https://www.googleapis.com/auth/cloud-platform"]
-  }
 }
