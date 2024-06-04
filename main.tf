@@ -43,7 +43,7 @@ resource "google_compute_instance" "default" {
   }
 
   service_account {
-    email  = "default"
+    email  = "index-icos-sandbox-e9ddv7@appspot.gserviceaccount.com"
     scopes = ["https://www.googleapis.com/auth/cloud-platform"]
   }
 }
